@@ -27,8 +27,8 @@ class EncoderPublisher(Node):
         try:
             raw_arduino_data = int(raw_arduino_data[0:len(raw_arduino_data) - 2], 10)
             revolution = raw_arduino_data / 1440.0 # kaiten pulse = 360 count = 360 * 4 = 1440 (1 pulse = 4 count)
-            velocity_ms = round(revolution * 2.0 * 0.125 * np.pi, 3) * 100.0
-            velocity_kmh = round(revolution * 2.0 * 0.125 * np.pi * 3.6, 3) * 100.0
+            velocity_ms = round(revolution * 2.0 * 0.125 * np.pi, 6) * 100.0
+            velocity_kmh = round(revolution * 2.0 * 0.125 * np.pi * 3.6, 6) * 100.0
         except:
             pass
         msg = Twist()
